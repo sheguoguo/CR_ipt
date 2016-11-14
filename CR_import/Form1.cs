@@ -127,7 +127,11 @@ namespace CR_import
                                 }
 
                                 //判断是否重复导入
+<<<<<<< HEAD
                                 string pkt_nbr_sql = "select count(*) from pkt_hdr ph left join pkt_hdr_intrnl phi on phi.pkt_ctrl_nbr=ph.pkt_ctrl_nbr where phi.stat_code<>99 and ph.pkt_nbr='" + dataGridView1.Rows[rc].Cells["合并单号"].Value.ToString().Substring(6, 11) + "'";
+=======
+                                string pkt_nbr_sql = "select count(*) from pkt_hdr ph where ph.pkt_nbr='" + dataGridView1.Rows[rc].Cells["合并单号"].Value.ToString().Substring(6, 11) +"'";
+>>>>>>> origin/master
                                 if (oraclehelper.ExecuteScalar(pkt_nbr_sql).ToString() != "0")
                                 {
                                     MessageBox.Show("系统已有相同的合并单号" + dataGridView1.Rows[rc].Cells["合并单号"].Value.ToString() + "，请核对后再重新导入!");
