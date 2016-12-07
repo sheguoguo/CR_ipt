@@ -1,6 +1,6 @@
 ﻿namespace CR_import
 {
-    partial class MainForm
+    partial class pkt_import_Form
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -274,16 +274,16 @@
             this.总数量.Visible = false;
             this.总数量.Width = 66;
             // 
-            // MainForm
+            // pkt_import_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 537);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
-            this.Name = "MainForm";
+            this.Name = "pkt_import_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "华润订单导入  V1.1";
+            this.Text = "华润订单导入";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
