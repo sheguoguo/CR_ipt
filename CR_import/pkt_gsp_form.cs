@@ -90,25 +90,31 @@ namespace CR_import
         {
             if (dataGridView1.RowCount != 0 && label12.Text.Length == 11)
             {
-                string improt_file = @"templates.xlsx";
-                string output_file = @"output\"+"130201"+label12.Text+".xlsx";
+                string improt_file = @"templates.xls";
+                string output_file = @"output\"+"130201"+label12.Text+".xls";
 
-                XSSFWorkbook wb = null;
+                HSSFWorkbook wb03 = null;   //excel2003
+                //XSSFWorkbook wb = null;   //excel2007
                 FileStream infs = File.Open(improt_file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-                wb = new XSSFWorkbook(infs);
+                wb03 = new HSSFWorkbook(infs);
+                //wb = new XSSFWorkbook(infs);
                 infs.Close();
                 infs.Dispose();
-                ISheet sheet = wb.GetSheet("sheet1");
+                ISheet sheet = wb03.GetSheet("sheet1");
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
                     sheet.CreateRow(i + 1).CreateCell(0).SetCellValue(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 }
+                
                 FileStream outfs = File.Open(output_file, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                wb.Write(outfs);
+                wb03.Write(outfs);
                 outfs.Close();
                 outfs.Dispose();
-                MessageBox.Show("文件: 130201" + label12.Text + ".xlsx"+" 已经成功生成。");
+                //wb.Close();
+                wb03.Close();
+                MessageBox.Show("文件: 130201" + label12.Text + ".xls"+" 已经成功生成。");
+                button2.Enabled = false;
             }
             else
             {
